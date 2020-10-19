@@ -51,25 +51,18 @@ const lists = STORE.lists.map((_, i) =>
       header={STORE.lists[i].header} 
       cards={STORE.lists[i].cardIds}
       key={STORE.lists[i].id}
-      id={STORE.lists[i].id}
+      // id={STORE.lists[i].id}
     >
       {STORE.lists[i].cardIds.map((_, j) =>
         <Card
           title={STORE.allCards[STORE.lists[i].cardIds[j]].title}
           content={STORE.allCards[STORE.lists[i].cardIds[j]].content}
           key={`${STORE.lists[i].id}-${STORE.allCards[STORE.lists[i].cardIds[j]].id}`}
-          id={`${STORE.lists[i].id}-${STORE.allCards[STORE.lists[i].cardIds[j]].id}`}
+          // id={`${STORE.lists[i].id}-${STORE.allCards[STORE.lists[i].cardIds[j]].id}`}
         />
       )}
     </List>
 )
-
-
-
-// function organizeCards(i) {
-//   let cards = 
-//   return cards;
-// }
 
 function App() {
   console.log(`${STORE.lists[1].id}-${STORE.allCards[STORE.lists[1].cardIds[0]].id}`)
