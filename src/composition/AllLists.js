@@ -1,10 +1,11 @@
 import React from 'react';
 import List from './list';
 import './list.css';
+import '../app.css';
 
 function AllLists(props) {
     return (
-         <section className="List">
+         <section className="List App-list">
             {props.lists.map((_, i) =>
                 <List 
                     header={props.lists[i].header} 
