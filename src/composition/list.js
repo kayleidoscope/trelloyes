@@ -1,4 +1,5 @@
 import React from 'react';
+import AllCards from './AllCards';
 import './list.css';
 
 function List(props) {
@@ -9,10 +10,19 @@ function List(props) {
                 <h2>{props.header}</h2>
             </header>
             <div className="List-cards">
-                {props.children}
+                <AllCards cards={props.cards} cardInfo={props.cardInfo}/>
             </div>
         </section>
     )
 }
 
 export default List;
+
+
+
+//       <Card
+//         title={STORE.allCards[STORE.lists[i].cardIds[j]].title}
+//         content={STORE.allCards[STORE.lists[i].cardIds[j]].content}
+//         key={`${STORE.lists[i].id}-${STORE.allCards[STORE.lists[i].cardIds[j]].id}`}
+//         // id={`${STORE.lists[i].id}-${STORE.allCards[STORE.lists[i].cardIds[j]].id}`}
+//       />
