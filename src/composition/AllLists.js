@@ -10,6 +10,9 @@ function AllLists(props) {
                     header={props.lists[i].header} 
                     cards={props.lists[i].cardIds}
                     cardInfo={props.allCards}
+                    onDelete={props.onDelete}
+                    onRandom={props.onRandom}
+                    id={props.lists[i].id}
                     key={props.lists[i].id}>
                 </List>
             )}

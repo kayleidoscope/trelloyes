@@ -46,18 +46,25 @@ class App extends React.Component {
     }
   }
 
-// let lists = STORE.lists.map((_, i) =>
+  handleDelete = (listId, cardId) => {
+    console.log('handleDelete called', { listId }, { cardId })
+    let listIndex = listId - 1;
+    let thisList = this.state.lists[listIndex];
+    let lists = this.state.lists;
+    let newCards = thisList.cardIds.filter(card => card !== cardId)
+    lists.map((_, i) => {
+      if (i === listIndex) {
+        this.state.lists[i].cardIds = newCards;
+      }
+    })
+    this.setState({
+      lists: lists
+    })
+  }
 
-//     {STORE.lists[i].cardIds.map((_, j) =>
-//       <Card
-//         title={STORE.allCards[STORE.lists[i].cardIds[j]].title}
-//         content={STORE.allCards[STORE.lists[i].cardIds[j]].content}
-//         key={`${STORE.lists[i].id}-${STORE.allCards[STORE.lists[i].cardIds[j]].id}`}
-//         // id={`${STORE.lists[i].id}-${STORE.allCards[STORE.lists[i].cardIds[j]].id}`}
-//       />
-//     )}
-  
-// )
+  handleRandom(newCard) {
+    console.log('handleRandom called')
+  }
 
   render() {
     return (
@@ -66,7 +73,12 @@ class App extends React.Component {
         <h1>Trelloyes!</h1>
       </header>
       <div className="App-list">
-        <AllLists lists={this.state.lists} allCards={this.state.allCards}/>
+        <AllLists
+          lists={this.state.lists}
+          allCards={this.state.allCards}
+          onDelete={this.handleDelete}
+          onRandom={this.handleRandom}
+        />
       </div>
     </main>
     );

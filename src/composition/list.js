@@ -3,14 +3,22 @@ import AllCards from './AllCards';
 import './list.css';
 
 function List(props) {
-    console.log(props)
     return (
         <section className="List" cards={props.cards}>
             <header className="List-header">
                 <h2>{props.header}</h2>
             </header>
             <div className="List-cards">
-                <AllCards cards={props.cards} cardInfo={props.cardInfo}/>
+                <AllCards 
+                    cards={props.cards} 
+                    cardInfo={props.cardInfo}
+                    onDelete={props.onDelete}
+                    listId={props.id}/>
+            <button 
+                onClick={props.onRandom}
+                type="button">
+                    Add random card
+            </button>
             </div>
         </section>
     )
