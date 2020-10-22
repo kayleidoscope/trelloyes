@@ -62,8 +62,28 @@ class App extends React.Component {
     })
   }
 
-  handleRandom(newCard) {
-    console.log('handleRandom called')
+  handleRandom = (listId) => {
+    console.log('handleRandom called', { listId })
+    let allCardsObject = this.state.allCards;
+    const newRandomCard = () => {
+      const id = Math.random().toString(36).substring(2, 4)
+        + Math.random().toString(36).substring(2, 4);
+      return {
+        id,
+        title: `Random Card ${id}`,
+        content: 'lorem ipsum',
+      }
+    }
+    let newCardObject = newRandomCard();
+    allCardsObject[newCardObject.id] = newCardObject;
+
+    let listIndex = listId - 1;
+    let thisList = this.state.lists[listIndex];
+    thisList.cardIds.push(newCardObject.id);
+
+    this.setState({
+      allCards: allCardsObject
+    })
   }
 
   render() {

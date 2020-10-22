@@ -15,7 +15,7 @@ function List(props) {
                     onDelete={props.onDelete}
                     listId={props.id}/>
             <button 
-                onClick={props.onRandom}
+                onClick={() => props.onRandom(props.id)}
                 type="button">
                     Add random card
             </button>
